@@ -8,13 +8,14 @@ public class Hotel {
     private int hotelRegularRate;
     private int hotelWeekendRate;
     private int hotelStarRating;
+    private int rewardCustomerWeekdayRate;
+    private int rewardCustomerWeekendRate;
+
 
     public Hotel(String hotelName,String customerType, int hotelRegularRate,int hotelWeekendRate, int hotelStarRating){
         this.hotelName = hotelName;
         this.customerType = customerType;
         this.hotelRegularRate = hotelRegularRate;
-        this.hotelWeekendRate = hotelWeekendRate;
-        this.hotelStarRating =  hotelStarRating;
     }
 
     public String getHotelName(){
