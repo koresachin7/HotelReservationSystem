@@ -12,6 +12,7 @@ import java.util.List;
  */
 public class HotelReservationSystem {
     private List<Hotel> hotels;
+    private String hotel;
 
     public HotelReservationSystem() {
         this.hotels = new ArrayList<>();
@@ -71,6 +72,31 @@ public class HotelReservationSystem {
             System.out.println("RidgeWood with total rates $370.");
         }
     }
+    public void findCheapestBestRatedHotel() {
+        int totalLakeWoodCost = 0, totalBridgeWoodCost = 0, totalRidgeWoodCost= 0;
+        int LakeWood_Rate = 3, BridgeWood_Rate = 4, RidgeWood_Rate = 5;
+        if (hotel == "LakeWood") {
+            int weekday_rate = 110;
+            int weekend_rate = 90;
+            totalLakeWoodCost = (totalLakeWoodCost + weekday_rate + weekend_rate);
+        }
+        if (hotel == "BridgeWood") {
+            int weekday_rate = 150;
+            int weekend_rate = 50;
+            totalBridgeWoodCost = (totalBridgeWoodCost + weekday_rate + weekend_rate);
+        }
+        if (hotel == "RidgeWood") {
+            int weekday_rate = 220;
+            int weekend_rate = 150;
+            totalRidgeWoodCost = (totalRidgeWoodCost + weekday_rate + weekend_rate);
+        }
+        if ((totalBridgeWoodCost <= totalLakeWoodCost && totalBridgeWoodCost < totalRidgeWoodCost) && (totalLakeWoodCost < totalBridgeWoodCost && totalBridgeWoodCost < totalRidgeWoodCost)) {
+            System.out.println("BridgeWood");
+            System.out.println("Rating:" + BridgeWood_Rate);
+            System.out.println("Total Rates: $" + totalBridgeWoodCost );
+        }
+    }
+
     public static void main(String[] args) throws Exception {
         Hotel hotel1 = new Hotel("LakeWood","Regular", 110,90, 3);
         Hotel hotel2 = new Hotel("BridgeWood","Regular", 150, 50, 4);
@@ -84,5 +110,6 @@ public class HotelReservationSystem {
         HotelReservationSystem hotel = new HotelReservationSystem();
         hotel.findCheapestHotel();
         hotel.findCheapestHotel_Weekday_Weekend();
+        hotel.findCheapestBestRatedHotel();
     }
 }
